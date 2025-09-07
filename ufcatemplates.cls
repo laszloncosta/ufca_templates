@@ -4,7 +4,7 @@
 %%   This class defines the pattern used in the exercises of the UFCA.              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ufcaexercicio}[2025/12/08 UFCA exercise]
+\ProvidesClass{ufcatemplates}[2025/12/08 UFCA exercise]
 
 \newcommand{\headlineolor}{\normalcolor}
 % \LoadClass[onecolumn, a4paper, twoside]{article} %% this template is based on the article tamplate. 
@@ -25,6 +25,14 @@
 \RequirePackage[a4paper, top=2cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
 \RequirePackage{lmodern, enumitem}
 \RequirePackage{hwsymb, hwlst, hwcmd}
+
+\RequirePackage{enumitem}
+\setlist[enumerate,1]{
+    label=\arabic*.,     % Numeração "1., 2., ..."
+    topsep=1.5ex,        % Espaço antes da lista
+    itemsep=2ex,         % Espaço entre os itens (ajuste este valor se desejar)
+    parsep=0.5ex         % Espaço dentro de um item
+}
 
 \hypersetup {
   pdfstartview=FitH,
@@ -58,7 +66,7 @@
                 & \multicolumn{2}{l}{\textbf{Curso:} \graduate{} } \\
                 & \textbf{Disciplina:} \course{} & \textbf{Código:} \codeCourse{}             \\ 
                 & \multicolumn{2}{l}{\textbf{Professor(a):} \prof{}}                 \\  
-                & \textbf{Semestre:} \semester{} &  \textbf{Data:}     \\ 
+                & \textbf{Semestre:} \semester{} &  \textbf{Data:}  \date{}   \\ 
                 \hline 
         \end{tabular}
         \end{table}
@@ -76,7 +84,7 @@
         \multirow{5}{*}{\includegraphics[scale=0.25]{logoUFCA.png}} & \multicolumn{2}{l}{\textbf{Curso:} \graduate{}}   \\
                 & \textbf{Disciplina:} \course{} & \textbf{Código:} \codeCourse{}             \\ 
                 & \multicolumn{2}{l}{\textbf{Professor(a):} \prof{}}                 \\  
-                & \textbf{Semestre:} \semester{} &  \textbf{Data:}     \\ 
+                & \textbf{Semestre:} \semester{} &  \textbf{Data:} \date{}     \\ 
                 & \textbf{Aluno:} \student{} & \textbf{Matrícula:} \registration{}  \\
                 \hline
         \end{tabular}
@@ -92,11 +100,12 @@
 \renewcommand{\normalsize}{\fontsize{9}{10}\selectfont}
 \setcounter{secnumdepth}{0}
 
-\newcommand{\points}[1]{
-    \fontsize{0.38cm}{0.1cm}\selectfont 
-    \fontfamily{lmr}
-    \textbf{(#1 pontos)}
+
+\newcommand{\points}[1]{%
+    \leavevmode\unskip\nobreak\hspace*{\fill}\nobreak
+    \textbf{(#1~\ifdim #1pt>1pt pontos\else ponto\fi)}%
 }
+
 
 \RequirePackage{amssymb}
 \RequirePackage{lmodern}

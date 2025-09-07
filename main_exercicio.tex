@@ -18,6 +18,7 @@
 \def\codeCourse{XXXXXX}
 \def\registration{}
 \def\student{}
+\def\date{08/09/2025}
 \def\graduate{Nome do Curso}
 \def\theme{Descrição do Tema}
 
@@ -25,36 +26,18 @@
     %% Table with the header
     \makeheaderexercise
 
-    %% Space for the instructions
-    \fbox{
-        \parbox{\textwidth}{
-            \begin{minipage}{\textwidth}
-                \makeinstructions
-                {
-                    \begin{instlist}
-                        \item A avaliação é individual e não é pesquisada.
-                        \item Preencha o cabeçalho da folha pergunta com seus dados.
-                        \item  Todas as folhas respostas devem conter o nome a a matrícula do aluno.
-                        \item O preenchimento das respostas deve ser feito utilizando caneta (preta ou azul).
-                    \end{instlist}
-                }
-            \end{minipage}
-        }
-    }
     % Space between the instructions and the questions.
     \vspace{1cm}
+
+    \begin{enumerate}
+        \item As questões podem ser elencadas dentro do ambiente \verb|enumerate|.
+        Desta forma, cada questão é referente a um \textit{item} da estrutura.\points{2}
+        \item No final de cada questão a função \verb|\points{n}| pode ser usada para 
+        indicar a pontuação da questão. \points{0.5}
     
-
-    \question As questões podem ser elencadas usando os comandos \textit{begin} e \textit{end} com o argumento question. Desta forma, cada questão é referente a um \textit{item} da estrutura \textit{question}.\points{2}
-
-    \begin{sol}
-      A solução da questão
-      \lstinputlisting[language=Python, caption={Python 3 implementing figure left wheel.}, label=cpr]{codes/prog.py}
-    
-    \end{sol}
-
-    \question Outra funcionalidade interessante: caso você queira colocar pontuação em cada questão, basta colocar o comando \textit{points} com o valor da pontuação da questão. \points{3.5}
-        
-    \question A ideia é que este template seja sempre atualizado, visando atender a todas as necessidades dos usuários da UFC. Caso possua alguma dica que melhore o template, é possível entrar em contato através do e-mail disposto nos comentários.\points{4}
+        \item O código fonte pode ser inserido utilizando o pacote \verb|listings|.
+        Veja o exemplo abaixo. \points{2}
+        \lstinputlisting[language=Python, label=cpr]{codes/prog.py}
+    \end{enumerate}
 
 \end{document}
