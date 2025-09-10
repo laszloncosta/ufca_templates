@@ -25,6 +25,7 @@
 \RequirePackage[a4paper, top=2cm, bottom=2.5cm, left=2cm, right=2cm, centering]{geometry}
 \RequirePackage{lmodern, enumitem}
 \RequirePackage{hwsymb, hwlst, hwcmd}
+\RequirePackage{indentfirst}
 
 \RequirePackage{enumitem}
 \setlist[enumerate,1]{
