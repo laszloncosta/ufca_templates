@@ -24,20 +24,20 @@
 
 \begin{document}
     %% Table with the header
+    \thispagestyle{empty}
     \makeheaderexam
 
     %% Space for the instructions
     \fbox{
-        \parbox{\textwidth}{
-            \begin{minipage}{\textwidth}
+        \parbox{.9\textwidth}{
+            \begin{minipage}{.9\textwidth}
                 \makeinstructions
                 {
-                    \begin{instlist}
-                        \item A avaliação é individual e não é pesquisada.
+                    \begin{itemize}
                         \item Preencha o cabeçalho da folha pergunta com seus dados.
-                        \item  Todas as folhas respostas devem conter o nome a a matrícula do aluno.
+                        \item Todas as folhas respostas devem conter o nome a a matrícula do aluno.
                         \item O preenchimento das respostas deve ser feito utilizando caneta (preta ou azul).
-                    \end{instlist}
+                    \end{itemize}
                 }
             \end{minipage}
         }
@@ -49,8 +49,11 @@
     \begin{enumerate}
         \item As questões podem ser elencadas dentro do ambiente \verb|enumerate|.
         Desta forma, cada questão é referente a um \textit{item} da estrutura.\points{2}
+
         \item No final de cada questão a função \verb|\points{n}| pode ser usada para 
-        indicar a pontuação da questão. \points{0.5}
+        indicar a pontuação da questão. 
+
+        \points{0.5}
     
         \item O código fonte pode ser inserido utilizando o pacote \verb|listings|.
         Veja o exemplo abaixo. \points{2}

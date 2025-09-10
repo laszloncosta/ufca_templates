@@ -19,10 +19,10 @@
 \def\hw@side{oneside}
 \DeclareOption{oneside}{\def\hw@side{oneside}}
 \DeclareOption{twoside}{\def\hw@side{twoside}}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsart}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[\hw@ptsize, \hw@side]{amsart}
-\RequirePackage[a4paper, top=2cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\LoadClass[\hw@ptsize, \hw@side]{article}
+\RequirePackage[a4paper, top=2cm, bottom=2.5cm, left=2cm, right=2cm, centering]{geometry}
 \RequirePackage{lmodern, enumitem}
 \RequirePackage{hwsymb, hwlst, hwcmd}
 
@@ -31,7 +31,8 @@
     label=\arabic*.,     % Numeração "1., 2., ..."
     topsep=1.5ex,        % Espaço antes da lista
     itemsep=2ex,         % Espaço entre os itens (ajuste este valor se desejar)
-    parsep=0.5ex         % Espaço dentro de um item
+    parsep=0.5ex,         % Espaço dentro de um item
+    leftmargin=* % ADICIONE ESTA LINHA para alinhar a lista
 }
 
 \hypersetup {
@@ -61,7 +62,7 @@
 \newcommand{\makeheaderexercise}{
     \begin{table}
         \fontsize{0.38cm}{0.5cm}\selectfont 
-        \begin{tabular}{lp{9cm}p{4cm}}
+        \begin{tabular}{lp{8cm}p{4cm}}
         \multirow{5}{*}{\includegraphics[scale=0.25]{logoUFCA.png}} & &\\
                 & \multicolumn{2}{l}{\textbf{Curso:} \graduate{} } \\
                 & \textbf{Disciplina:} \course{} & \textbf{Código:} \codeCourse{}             \\ 
@@ -78,9 +79,10 @@
 }
 
 \newcommand{\makeheaderexam}{
-    \begin{table}
+    \thispagestyle{empty} % Garante que a primeira página não tem número
+    \begin{center} % Centraliza o cabeçalho
         \fontsize{0.38cm}{0.5cm}\selectfont 
-        \begin{tabular}{lp{9cm}p{4cm}}
+        \begin{tabular}{lp{8cm}p{4cm}}
         \multirow{5}{*}{\includegraphics[scale=0.25]{logoUFCA.png}} & \multicolumn{2}{l}{\textbf{Curso:} \graduate{}}   \\
                 & \textbf{Disciplina:} \course{} & \textbf{Código:} \codeCourse{}             \\ 
                 & \multicolumn{2}{l}{\textbf{Professor(a):} \prof{}}                 \\  
@@ -88,12 +90,11 @@
                 & \textbf{Aluno:} \student{} & \textbf{Matrícula:} \registration{}  \\
                 \hline
         \end{tabular}
-        \end{table}
-        \vspace{4cm}
-        \fontsize{0.38cm}{0.5cm}\selectfont 
-        \begin{center}
-            \centering{\textbf{\theme{}}}
-        \end{center}        
+    \end{center}
+    \fontsize{0.38cm}{0.5cm}\selectfont 
+    \begin{center}
+        \textbf{\theme{}}
+    \end{center}        
 }
 
 
